@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/SunnyWeather/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/SunnyWeather/app/src/main/res/layout/activity_main.xml" value="0.19435736677115986" />
+        <entry key="..\:/SunnyWeather/app/src/main/res/layout/fragment_place.xml" value="0.24157303370786518" />
+        <entry key="..\:/SunnyWeather/app/src/main/res/layout/place_item.xml" value="0.20208333333333334" />
       </map>
     </option>
   </component>
