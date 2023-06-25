@@ -1,5 +1,8 @@
 package com.trajectory27.sunnyweather.logic.network
 
+import android.util.Log
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,8 +15,17 @@ object ServiceCreator {
 
     private const val BASE_URL = "http://api.caiyunapp.com"
 
+    private val httpLoggingInterceptor = HttpLoggingInterceptor()
+
+    private val okHttpClient = OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build()
+
+    init {
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+    }
+
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
+        .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
