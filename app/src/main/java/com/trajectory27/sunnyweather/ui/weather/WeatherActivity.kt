@@ -1,6 +1,7 @@
 package com.trajectory27.sunnyweather.ui.weather
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.sax.RootElement
@@ -28,6 +29,10 @@ class WeatherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val decorView = window.decorView
+        decorView.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.statusBarColor = Color.TRANSPARENT
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -50,8 +55,18 @@ class WeatherActivity : AppCompatActivity() {
                 Toast.makeText(this, "无法成功获取天气信息", Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull()?.printStackTrace()
             }
+            binding.swipeRefresh.isRefreshing = false
         })
+        binding.swipeRefresh.setColorSchemeColors(getColor(R.color.design_default_color_primary))
+        refreshWeather()
+        binding.swipeRefresh.setOnRefreshListener {
+            refreshWeather()
+        }
+    }
+
+    private fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
+        binding.swipeRefresh.isRefreshing = true
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
