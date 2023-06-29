@@ -43,23 +43,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/ivColdRisk"
-                    android:layout_marginStart="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="感冒" />
+                        android:text="感冒"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvColdRiskText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -81,23 +81,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/ivDressing"
-                    android:layout_marginStart="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="穿衣" />
+                        android:text="穿衣"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvDressing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -107,6 +107,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp">
 
             <RelativeLayout
@@ -126,23 +127,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/ivUltraviolet"
-                    android:layout_marginStart="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="实时紫外线" />
+                        android:text="紫外线"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvUltraviolet"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -164,23 +165,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:layout_marginStart="10dp"
                     android:layout_toEndOf="@id/ivCarWashing"
-                    android:layout_marginStart="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:text="洗车" />
+                        android:text="洗车"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:id="@+id/tvCarWashing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:textSize="16sp"
-                        android:textColor="?android:attr/textColorPrimary" />
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="14sp" />
                 </LinearLayout>
 
             </RelativeLayout>

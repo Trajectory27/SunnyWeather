@@ -56,5 +56,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation 'io.github.jeremyliao:live-event-bus-x:1.8.0'
 
 }

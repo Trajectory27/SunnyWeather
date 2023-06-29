@@ -1,15 +1,20 @@
 package com.trajectory27.sunnyweather.ui.weather
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.sax.RootElement
 import android.view.LayoutInflater
 import android.view.View
+import android.view.inputmethod.InputMethod
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.trajectory27.sunnyweather.R
@@ -20,6 +25,9 @@ import com.trajectory27.sunnyweather.logic.model.getSky
 import retrofit2.http.GET
 import java.text.SimpleDateFormat
 import java.util.*
+import com.jeremyliao.liveeventbus.LiveEventBus
+import com.trajectory27.sunnyweather.logic.constant.LiveEventBusConstant.CLOSE_DRAWER
+
 
 class WeatherActivity : AppCompatActivity() {
 
@@ -36,6 +44,32 @@ class WeatherActivity : AppCompatActivity() {
         binding = ActivityWeatherBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        binding.btnNav.setOnClickListener {
+            binding.drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        binding.drawerLayout.addDrawerListener(object : DrawerLayout.DrawerListener {
+            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
+
+            }
+
+            override fun onDrawerOpened(drawerView: View) {
+
+            }
+
+            override fun onDrawerClosed(drawerView: View) {
+                val manger = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                manger.hideSoftInputFromWindow(
+                    binding.drawerLayout.windowToken,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
+            }
+
+            override fun onDrawerStateChanged(newState: Int) {
+
+            }
+        })
 
         if (viewModel.locationLng.isEmpty()) {
             viewModel.locationLng = intent.getStringExtra("location_lng") ?: ""
@@ -64,7 +98,7 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun refreshWeather() {
+    fun refreshWeather() {
         viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
         binding.swipeRefresh.isRefreshing = true
     }
@@ -112,6 +146,11 @@ class WeatherActivity : AppCompatActivity() {
         binding.includeLifeIndex.tvCarWashing.text = lifeIndex.carWashing[0].desc
         binding.weatherLayout.visibility = View.VISIBLE
 
+        // 接收关闭抽屉的消息
+        LiveEventBus
+            .get(CLOSE_DRAWER, String::class.java)
+            .observe(this,
+                { binding.drawerLayout.closeDrawers() })
 
     }
 }
